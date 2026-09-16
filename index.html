@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>😂 Random Joke Generator</h1>
+            <p>Get instant laughs with our joke API</p>
+        </header>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="api-selector">
+                <label for="apiSelect">Choose API:</label>
+                <select id="apiSelect" class="select-input">
+                    <option value="jokeapi">JokeAPI</option>
+                    <option value="uselessfacts">Useless Facts API</option>
+                    <option value="official">Official Joke API</option>
+                    <option value="mixed">Random Mixed Jokes</option>
+                </select>
+            </div>
+
+            <div class="category-selector">
+                <label for="categorySelect">Category:</label>
+                <select id="categorySelect" class="select-input">
+                    <option value="any">Any</option>
+                    <option value="general">General</option>
+                    <option value="programming">Programming</option>
+                    <option value="knock-knock">Knock-Knock</option>
+                </select>
+            </div>
+
+            <button id="generateBtn" class="btn btn-primary">Generate Joke</button>
+            <button id="shareBtn" class="btn btn-secondary">Share 📤</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-section">
+            <label class="checkbox-label">
+                <input type="checkbox" id="safeMode" checked>
+                Safe Mode (No Offensive Jokes)
+            </label>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading joke...</p>
+        </div>
+
+        <!-- Joke Display Area -->
+        <div id="jokeContainer" class="joke-container">
+            <div class="joke-card hidden" id="jokeCard">
+                <div class="joke-header">
+                    <span id="jokeSource" class="joke-source">JokeAPI</span>
+                    <button id="copyBtn" class="copy-btn" title="Copy to clipboard">📋</button>
+                </div>
+                <div class="joke-content">
+                    <p id="jokeText" class="joke-text"></p>
+                    <p id="jokePunchline" class="joke-punchline hidden"></p>
+                </div>
+                <div class="joke-meta">
+                    <span id="jokeMeta" class="joke-meta-text"></span>
+                </div>
+            </div>
+
+            <div id="welcomeState" class="welcome-state">
+                <div class="welcome-emoji">😄</div>
+                <h2>Click "Generate Joke" to get started!</h2>
+                <p>Choose an API and category, then click the button to fetch a random joke</p>
+            </div>
+        </div>
+
+        <!-- Favorites Section -->
+        <div class="favorites-section">
+            <div class="favorites-header">
+                <h2>❤️ Favorites</h2>
+                <button id="clearFavBtn" class="btn btn-danger">Clear All</button>
+            </div>
+            <div id="favoritesList" class="favorites-list">
+                <p class="no-favorites">No favorite jokes yet. Click the heart icon to add one!</p>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-section">
+            <div class="history-header">
+                <h2>📜 Recently Viewed</h2>
+                <button id="clearHistBtn" class="btn btn-danger">Clear History</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <p class="no-history">No jokes viewed yet</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Random Joke Generator. Made with 💙 using public APIs</p>
+        <p class="api-credits">
+            APIs: <a href="https://jokeapi.dev" target="_blank">JokeAPI</a> | 
+            <a href="https://uselessfacts.jsoup.com" target="_blank">Useless Facts</a> | 
+            <a href="https://official-joke-api.appspot.com" target="_blank">Official Joke API</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
